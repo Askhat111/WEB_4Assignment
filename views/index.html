@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backend Assignment 4</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1><i class="fas fa-chart-line"></i> Weather Platform</h1>
+    <p>Assignment 4</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <form id="analyticsForm">
+        <div class="input-group">
+          <label><i class="fas fa-database"></i> Field</label>
+          <select id="field">
+            <option value="field1">🌡️ Temperature (°C)</option>
+            <option value="field2">💧 Humidity (%)</option>
+            <option value="field3">🌡️ Apparent Temp (°C)</option>
+          </select>
+        </div>
+        <div class="date-range">
+          <div class="input-group">
+            <label>Start Date</label>
+            <input type="date" id="start_date" value="2016-01-01">
+          </div>
+          <div class="input-group">
+            <label>End Date</label>
+            <input type="date" id="end_date" value="2016-03-01">
+          </div>
+        </div>
+        <button type="submit" class="btn-primary">
+          <i class="fas fa-chart-line"></i> Visualize Data
+        </button>
+        <button type="button" onclick="getMetrics()" class="btn-secondary">
+          <i class="fas fa-calculator"></i> Calculate Metrics
+        </button>
+      </form>
+    </section>
+
+    <section class="charts">
+      <div class="chart-container">
+        <h3><i class="fas fa-chart-line"></i> Line Chart (Time-Series)</h3>
+        <canvas id="lineChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3><i class="fas fa-chart-bar"></i> Bar Chart</h3>
+        <canvas id="barChart"></canvas>
+      </div>
+    </section>
+
+    <section class="metrics" id="metricsSection">
+      <h3><i class="fas fa-chart-pie"></i> Statistical Metrics</h3>
+      <div id="metrics" class="metrics-grid"></div>
+    </section>
+  </main>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
